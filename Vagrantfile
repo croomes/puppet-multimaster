@@ -13,6 +13,7 @@ Vagrant::Config.run do |config|
       puppet.manifests_path = "provision/manifests"
       puppet.module_path = "provision/modules"      
       puppet.manifest_file = "dev.pp"
+      puppet.options = "--verbose --debug"
     end
   end
 end
