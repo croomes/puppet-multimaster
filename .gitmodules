@@ -1,0 +1,6 @@
+[submodule "provision/modules/rvm"]
+	path = provision/modules/rvm
+	url = git://github.com/blt04/puppet-rvm.git
+[submodule "src/bash-it"]
+	path = src/bash-it
+	url = https://github.com/revans/bash-it.git
