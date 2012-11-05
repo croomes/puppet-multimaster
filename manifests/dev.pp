@@ -27,7 +27,7 @@ exec { 'capistrano_puppet':
   require => Rvm_gem['capistrano'],
   cwd     => "/vagrant/src/capistrano-puppet",
   path    => $ruby_path,
-  #creates => ["/usr/local/rvm/gems/$ruby/gems/$name"]
+  creates => ["/usr/local/rvm/gems/$ruby/gems/$name"],
 }
 
 # Create our Capistrano config for puppet-bootstrap
@@ -47,14 +47,12 @@ file { "${deploy_to}/Capfile":
 
 # Deploy our puppet-bootstrap repo
 exec { 'cap deploy:setup':
-#  require => Exec['capistrano_puppet'],
   require => File["${deploy_to}/Capfile"],
   cwd     => $deploy_to,
   path    => $ruby_path,
   user    => 'vagrant',
 }
 exec { 'cap deploy':
-#  require => Exec['capistrano_puppet'],
   require => File["${deploy_to}/Capfile"],
   cwd     => $deploy_to,
   path    => $ruby_path,
